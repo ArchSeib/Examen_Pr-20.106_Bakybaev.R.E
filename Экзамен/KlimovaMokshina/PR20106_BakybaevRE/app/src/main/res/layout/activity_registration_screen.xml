@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fon_city"
+    tools:context=".RegistrationScreen">
+
+    <EditText
+        android:id="@+id/loginETRegistration"
+        android:layout_width="250dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="276dp"
+        android:background="@color/white"
+        android:hint="@string/textETLogin"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        app:layout_constraintHorizontal_bias="0.627"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextContrastCheck" />
+
+    <EditText
+        android:id="@+id/passwordETRegistration"
+        android:layout_width="250dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="360dp"
+        android:background="@color/white"
+        android:hint="@string/TextETPassword"
+        android:importantForAutofill="no"
+        android:inputType="textPassword"
+        app:layout_constraintHorizontal_bias="0.627"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextContrastCheck,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+    <EditText
+        android:id="@+id/passwordETAgainRegistration"
+        android:layout_width="250dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="436dp"
+        android:background="@color/white"
+        android:hint="@string/text_et_again_pasword"
+        android:importantForAutofill="no"
+        android:inputType="textPassword"
+        app:layout_constraintHorizontal_bias="0.627"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="210dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="158dp"
+        android:layout_marginTop="580dp"
+        android:layout_marginEnd="159dp"
+        android:background="@drawable/border_btn"
+        android:onClick="Validation"
+        android:text="@string/sign_in"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck,TouchTargetSizeCheck" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#55ffffff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="508dp"
+        android:minHeight="48dp"
+        android:text="@string/i_accept_the_terms_of_the_agreement"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:background="@color/white"
+        android:contentDescription="@string/log_todo"
+        app:layout_constraintEnd_toStartOf="@+id/passwordETRegistration"
+        app:layout_constraintTop_toTopOf="@+id/passwordETRegistration"
+        app:srcCompat="@drawable/login_icon"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:background="@color/white"
+        android:contentDescription="@string/log_todo"
+        app:layout_constraintEnd_toStartOf="@+id/passwordETAgainRegistration"
+        app:layout_constraintTop_toTopOf="@+id/passwordETAgainRegistration"
+        app:srcCompat="@drawable/login_icon"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:background="@color/white"
+        android:contentDescription="@string/pas_todo"
+        app:layout_constraintEnd_toStartOf="@+id/loginETRegistration"
+        app:layout_constraintTop_toTopOf="@+id/loginETRegistration"
+        app:srcCompat="@drawable/mail_icon"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="69dp"
+        android:layout_marginEnd="40dp"
+        android:contentDescription="@string/logotip_todo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view2"
+        app:srcCompat="@drawable/logotip" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="154dp"
+        android:layout_marginBottom="50dp"
+        android:onClick="back"
+        android:text="@string/have_an_account"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/view2"
+        app:layout_constraintEnd_toEndOf="@+id/view2"
+        tools:ignore="TouchTargetSizeCheck" />
+</android.support.constraint.ConstraintLayout>

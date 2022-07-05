@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище LombardModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Clients">
+    <Key>
+      <PropertyRef Name="ID_Client" />
+    </Key>
+    <Property Name="ID_Client" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="Number_Pasport" Type="int" Nullable="false" />
+    <Property Name="Seria_Pasport" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Payment_Schedules">
+    <Key>
+      <PropertyRef Name="ID_Payment_Schedule" />
+    </Key>
+    <Property Name="ID_Payment_Schedule" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Product" Type="bigint" Nullable="false" />
+    <Property Name="Cost" Type="int" Nullable="false" />
+    <Property Name="Last_Date_Payment" Type="date" Nullable="false" />
+    <Property Name="Now_Date_Payment" Type="date" Nullable="false" />
+    <Property Name="ID_Worker" Type="bigint" Nullable="false" />
+    <Property Name="ID_Status" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product_Sales">
+    <Key>
+      <PropertyRef Name="ID_Product_Sale" />
+    </Key>
+    <Property Name="ID_Product_Sale" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Product" Type="bigint" Nullable="false" />
+    <Property Name="Date_Sale" Type="date" Nullable="false" />
+    <Property Name="ID_Worker" Type="bigint" Nullable="false" />
+    <Property Name="Cost" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="ID_Product" />
+    </Key>
+    <Property Name="ID_Product" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name_Product" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID_Type" Type="bigint" Nullable="false" />
+    <Property Name="Date_Delivery" Type="date" Nullable="false" />
+    <Property Name="Estimated_Cost" Type="int" Nullable="false" />
+    <Property Name="ID_Worker" Type="bigint" Nullable="false" />
+    <Property Name="Cost_Secured" Type="int" Nullable="false" />
+    <Property Name="Cost_Redemption" Type="int" Nullable="false" />
+    <Property Name="ID_Clients" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="ID_Status" />
+    </Key>
+    <Property Name="ID_Status" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name_Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Types">
+    <Key>
+      <PropertyRef Name="ID_Type" />
+    </Key>
+    <Property Name="ID_Type" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name_Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Workers">
+    <Key>
+      <PropertyRef Name="ID_Worker" />
+    </Key>
+    <Property Name="ID_Worker" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Payment_Schedules_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="Payment_Schedules" Type="Self.Payment_Schedules" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ID_Product" />
+      </Principal>
+      <Dependent Role="Payment_Schedules">
+        <PropertyRef Name="ID_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payment_Schedules_Status">
+    <End Role="Status" Type="Self.Status" Multiplicity="1" />
+    <End Role="Payment_Schedules" Type="Self.Payment_Schedules" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="ID_Status" />
+      </Principal>
+      <Dependent Role="Payment_Schedules">
+        <PropertyRef Name="ID_Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payment_Schedules_Workers">
+    <End Role="Workers" Type="Self.Workers" Multiplicity="1" />
+    <End Role="Payment_Schedules" Type="Self.Payment_Schedules" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workers">
+        <PropertyRef Name="ID_Worker" />
+      </Principal>
+      <Dependent Role="Payment_Schedules">
+        <PropertyRef Name="ID_Worker" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Sales_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="Product_Sales" Type="Self.Product_Sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ID_Product" />
+      </Principal>
+      <Dependent Role="Product_Sales">
+        <PropertyRef Name="ID_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Sales_Workers">
+    <End Role="Workers" Type="Self.Workers" Multiplicity="1" />
+    <End Role="Product_Sales" Type="Self.Product_Sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workers">
+        <PropertyRef Name="ID_Worker" />
+      </Principal>
+      <Dependent Role="Product_Sales">
+        <PropertyRef Name="ID_Worker" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_Clients">
+    <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="ID_Client" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="ID_Clients" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_Types">
+    <End Role="Types" Type="Self.Types" Multiplicity="1" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Types">
+        <PropertyRef Name="ID_Type" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="ID_Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_Workers">
+    <End Role="Workers" Type="Self.Workers" Multiplicity="1" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workers">
+        <PropertyRef Name="ID_Worker" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="ID_Worker" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище LombardModelContainer">
+    <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payment_Schedules" EntityType="Self.Payment_Schedules" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product_Sales" EntityType="Self.Product_Sales" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Types" EntityType="Self.Types" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Workers" EntityType="Self.Workers" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Payment_Schedules_Products" Association="Self.FK_Payment_Schedules_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Payment_Schedules" EntitySet="Payment_Schedules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payment_Schedules_Status" Association="Self.FK_Payment_Schedules_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="Payment_Schedules" EntitySet="Payment_Schedules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payment_Schedules_Workers" Association="Self.FK_Payment_Schedules_Workers">
+      <End Role="Workers" EntitySet="Workers" />
+      <End Role="Payment_Schedules" EntitySet="Payment_Schedules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Sales_Products" Association="Self.FK_Product_Sales_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Product_Sales" EntitySet="Product_Sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Sales_Workers" Association="Self.FK_Product_Sales_Workers">
+      <End Role="Workers" EntitySet="Workers" />
+      <End Role="Product_Sales" EntitySet="Product_Sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_Clients" Association="Self.FK_Products_Clients">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_Types" Association="Self.FK_Products_Types">
+      <End Role="Types" EntitySet="Types" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_Workers" Association="Self.FK_Products_Workers">
+      <End Role="Workers" EntitySet="Workers" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

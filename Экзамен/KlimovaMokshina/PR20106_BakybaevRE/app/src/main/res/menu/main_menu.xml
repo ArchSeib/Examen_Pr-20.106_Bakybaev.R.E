@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_settings"
+        android:icon="@drawable/profile"
+        android:orderInCategory="1"
+        android:title="@string/item_menu_profile" />
+    <item
+        android:id="@+id/save_settings"
+        android:icon="@drawable/history"
+        android:orderInCategory="2"
+        android:title="@string/item_menu_historu" />
+    <item
+        android:id="@+id/open_settings"
+        android:icon="@drawable/setting"
+        android:orderInCategory="3"
+        android:title="@string/Item_menu_setting" />
+
+</menu>

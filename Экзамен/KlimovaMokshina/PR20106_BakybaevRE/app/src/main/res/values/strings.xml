@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">PR-20.106_BakybaevRE</string>
+    <string name="BtnAtoriztionNext">Авторизация</string>
+    <string name="MainNameText">Главный экран</string>
+    <string name="BtnRegistrationNext">регистрация</string>
+    <string name="NamePagerRegistration">Авторизация</string>
+    <string name="textETLogin">Логин</string>
+    <string name="TextETPassword">Пароль</string>
+    <string name="BtnAutorization">Авторизация</string>
+    <string name="Btnback">Назад</string>
+    <string name="TextPageRegistration">Регистрация</string>
+    <string name="HintAgainPassword">Повторите пароль</string>
+    <string name="item_menu_profile">Профиль</string>
+    <string name="Item_menu_setting">Настройки</string>
+    <string name="item_menu_historu">История</string>
+    <string name="cartodo">TODO</string>
+    <string name="create_a_new_account">Create a new account ?</string>
+    <string name="sign_in">SIGN IN</string>
+    <string name="remember_my">Remember my</string>
+    <string name="forgot_password">Forgot Password ?</string>
+    <string name="log_todo">TODO</string>
+    <string name="pas_todo">TODO</string>
+    <string name="logotip_todo">TODO</string>
+    <string name="i_accept_the_terms_of_the_agreement">I accept the terms of the agreement</string>
+    <string name="have_an_account">Have an account?</string>
+    <string name="text_et_again_pasword">Повторите пароль</string>
+    <string name="еfwefe">Вперед</string>
+    <string name="sefrfc">Вперёд</string>
+    <string name="rwtbb">Назад</string>
+</resources>
